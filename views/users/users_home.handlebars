@@ -1,0 +1,36 @@
+this is home page for students 
+	{{ user.username }}
+
+
+{{# each eventsList }}
+
+<div class="row">
+    {{# each this}}
+    
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            {{!-- <img src="{{ this.imageURL }}" class="img-responsive" alt="..."> --}}
+            <div class="caption">
+                <a href="/event/eventdetail/{{this._id}}" class=""><h3>{{ this.name }}</h3></a>
+                <p class="description">{{ this.eventDescription }}</p>
+                <div class="clearfix">
+                    <div id="price-range" class="hideMe">
+                        {{# if payableEvent}}           
+                        <br>
+                        <span class="price">TicketPrice:</span> ${{this.ticketPrice}}
+                        {{ else}}
+                        <br>
+                        <label>This is a Free Event</label>
+                        {{/if}}
+                     </div>
+                     <a href="/event/eventdetail/{{this._id}}" class="btn btn-success pull-right" role="button">View Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+
+</div>
+
+{{/each}}
+
